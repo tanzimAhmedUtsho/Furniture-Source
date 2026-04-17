@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Furniture Source</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="About.css" />
+  </head>
+  <body class="dark">
+    <header>
+      <div class="logo">Furniture Source</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Shop</a>
+        <a href="about.html">About</a>
+        <a href="#">Contact</a>
+      </nav>
+      <button id="modeToggle">🌙</button>
+    </header>
+
+    <section class="about-hero">
+      <div class="overlay fade-in">
+        <h1>Our Story</h1>
+        <p>Crafting Comfort Since 2026</p>
+      </div>
+    </section>
+
+    <section class="owner-section">
+      <div class="container">
+        <div class="owner-content">
+          <div class="owner-image fade-in">
+            <img src="/image/tanzim.jpg" alt="Tanzim Ahmed Utsho" />
+          </div>
+          <div class="owner-details fade-in">
+            <h2 style="margin-bottom: 10px">আমাদের প্রতিষ্ঠাতা</h2>
+            <h3 style="color: #facc15; margin-bottom: 15px">
+              তানজীম আহমেদ উৎস
+            </h3>
+            <p>
+              Furniture Source-এর যাত্রা শুরু হয়েছে
+              <strong>তানজীম আহমেদ উৎস</strong>-এর হাত ধরে। তাঁর স্বপ্ন ছিল
+              সাধারণ মানুষের ঘরে আধুনিক এবং প্রিমিয়াম কোয়ালিটির আসবাবপত্র পৌঁছে
+              দেওয়া।
+            </p>
+            <p
+              style="
+                margin-top: 15px;
+                font-style: italic;
+                border-left: 3px solid #facc15;
+                padding-left: 15px;
+              "
+            >
+              "আমরা শুধু আসবাবপত্র বিক্রি করি না, আমরা আপনার ঘরকে একটি স্বপ্নিল
+              নীড়ে রূপান্তর করতে সাহায্য করি।" — এই লক্ষ্য নিয়েই তানজিম এবং তাঁর
+              দল নিরলস কাজ করে যাচ্ছে।
+            </p>
+            <div class="stats">
+              <div class="stat-box">
+                <h4>৫০০+</h4>
+                <p>প্রজেক্ট</p>
+              </div>
+              <div class="stat-box">
+                <h4>১০০%</h4>
+                <p>কোয়ালিটি</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Furniture Source. Developed for Tanzim Ahmed Utsho.</p>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById("modeToggle");
+      toggle.onclick = () => {
+        document.body.classList.toggle("light");
+        document.body.classList.toggle("dark");
+        toggle.innerText = document.body.classList.contains("light")
+          ? "☀️"
+          : "🌙";
+      };
+    </script>
+  </body>
+</html>
