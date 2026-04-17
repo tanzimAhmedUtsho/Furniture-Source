@@ -1,4 +1,6 @@
-/* --- Global Reset & Luxury Colors --- */
+/* ==========================================================================
+   1. GLOBAL RESET & LUXURY VARIABLES
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -8,12 +10,13 @@
 }
 
 :root {
-  --primary: #facc15; /* Furniture Source Signature Golden */
+  --primary: #facc15; /* Signature Golden */
   --bg-dark: #020617; /* Deep Midnight Blue */
   --card-dark: rgba(30, 41, 59, 0.4);
   --glass: rgba(255, 255, 255, 0.03);
   --border: rgba(255, 255, 255, 0.08);
   --text-primary: #f8fafc;
+  --discount-red: #ef4444; /* Standard Discount Red */
 }
 
 body.dark {
@@ -21,7 +24,9 @@ body.dark {
   color: var(--text-primary);
 }
 
-/* --- Premium Navigation --- */
+/* ==========================================================================
+   2. NAVIGATION (HEADER)
+   ========================================================================== */
 header {
   display: flex;
   justify-content: space-between;
@@ -57,7 +62,9 @@ nav a:hover {
   text-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
 }
 
-/* --- Cinematic Hero Section --- */
+/* ==========================================================================
+   3. SHOP HERO SECTION
+   ========================================================================== */
 .shop-hero {
   height: 65vh;
   background:
@@ -71,7 +78,7 @@ nav a:hover {
 }
 
 .shop-hero .overlay {
-  background: rgba(15, 23, 42, 0.7); /* Matching your previous luxury box */
+  background: rgba(15, 23, 42, 0.7);
   padding: 60px;
   border-radius: 40px;
   backdrop-filter: blur(20px);
@@ -90,7 +97,9 @@ nav a:hover {
   -webkit-text-fill-color: transparent;
 }
 
-/* --- Luxury Filter Buttons --- */
+/* ==========================================================================
+   4. LUXURY FILTER BUTTONS
+   ========================================================================== */
 .filter-container {
   display: flex;
   justify-content: center;
@@ -115,18 +124,20 @@ nav a:hover {
 }
 
 .filter-btn.active {
-  background: var(--primary); /* */
+  background: var(--primary);
   color: #020617;
   font-weight: 600;
   box-shadow: 0 10px 20px rgba(250, 204, 21, 0.2);
 }
 
-/* --- High-End Product Cards --- */
+/* ==========================================================================
+   5. PRODUCT GRID & CARDS
+   ========================================================================== */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
-  padding-bottom: 100px;
+  padding: 0 8% 100px;
 }
 
 .product-card {
@@ -145,6 +156,7 @@ nav a:hover {
 
 .product-img {
   height: 320px;
+  overflow: hidden;
   background: #1e293b;
 }
 
@@ -160,21 +172,24 @@ nav a:hover {
   opacity: 1;
 }
 
-/* Badge Style */
-.badge {
+/* --- Improved Discount Badge --- */
+.badge.sale {
   position: absolute;
   top: 20px;
-  left: 20px;
-  background: var(--primary);
-  color: #020617;
+  right: 20px; /* Moved to right for better balance */
+  background: linear-gradient(135deg, var(--discount-red), #b91c1c);
+  color: #fff;
   padding: 6px 16px;
   border-radius: 100px;
   font-size: 11px;
   font-weight: 700;
-  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+  z-index: 10;
 }
 
-/* Info Section */
+/* ==========================================================================
+   6. PRODUCT INFO & PRICING
+   ========================================================================== */
 .product-info {
   padding: 30px;
   text-align: center;
@@ -183,18 +198,33 @@ nav a:hover {
 .product-info h3 {
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: #f1f5f9;
 }
 
 .price {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
   margin-bottom: 25px;
 }
 
-/* Designer Order Button */
+.current-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.old-price {
+  font-size: 14px;
+  color: #94a3b8;
+  text-decoration: line-through;
+  text-decoration-color: var(--discount-red);
+  opacity: 0.8;
+}
+
+/* --- CTA Button --- */
 .add-to-cart {
   width: 100%;
   padding: 14px;
@@ -206,6 +236,7 @@ nav a:hover {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 12px;
+  cursor: pointer;
 }
 
 .add-to-cart:hover {
@@ -214,11 +245,14 @@ nav a:hover {
   box-shadow: 0 15px 30px rgba(250, 204, 21, 0.2);
 }
 
-/* --- Animated Footer --- */
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
 footer {
   padding: 60px;
   background: #01040a;
   border-top: 1px solid var(--border);
+  text-align: center;
   color: #64748b;
   font-size: 13px;
   letter-spacing: 1px;
