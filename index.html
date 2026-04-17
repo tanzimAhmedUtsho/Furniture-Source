@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Furniture Source | Luxury Home</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="dark">
+    <header>
+      <div class="logo">Furniture Source</div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+      <button id="modeToggle" title="Toggle Light/Dark Mode">🌙</button>
+    </header>
+
+    <div class="announcement-bar">
+      <div class="scrolling-text">
+        🔥 Premium Furniture Sale | Up to 50% OFF | Free Delivery 🔥
+        &nbsp;&nbsp;&nbsp; 🔥 Premium Furniture Sale | Up to 50% OFF | Free
+        Delivery 🔥
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="overlay fade-in">
+        <h2>Elegant Furniture for Your Dream Home</h2>
+        <p>Luxury & Comfort Combined</p>
+        <button class="cta-btn">Shop Now</button>
+      </div>
+    </section>
+
+    <section class="products">
+      <h2 class="section-title">Featured Collection</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="/image/sofa.jpg" alt="Sofa" />
+          <div class="card-info">
+            <h3>Modern Sofa</h3>
+            <p>$320</p>
+            <button class="buy-btn">Buy Now</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="/image/chair.webp" alt="Chair" />
+          <div class="card-info">
+            <h3>Wooden Chair</h3>
+            <p>$120</p>
+            <button class="buy-btn">Buy Now</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="/image/luxury_beds.jpeg" alt="Bed" />
+          <div class="card-info">
+            <h3>Luxury Bed</h3>
+            <p>$550</p>
+            <button class="buy-btn">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Furniture Source. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById("modeToggle");
+      toggle.onclick = () => {
+        document.body.classList.toggle("light");
+        document.body.classList.toggle("dark");
+        // Icon change logic
+        if (document.body.classList.contains("light")) {
+          toggle.innerText = "☀️";
+        } else {
+          toggle.innerText = "🌙";
+        }
+      };
+    </script>
+  </body>
+</html>
