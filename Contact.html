@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Furniture Source</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Contact.css" />
+  </head>
+  <body class="dark">
+    <header>
+      <div class="logo">Furniture Source</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button id="modeToggle" title="Toggle Mode">🌙</button>
+    </header>
+
+    <section class="contact-hero">
+      <div class="overlay fade-in">
+        <h1>যোগাযোগ করুন</h1>
+        <p>আপনার যেকোনো প্রশ্ন বা মতামতের জন্য আমরা প্রস্তুত</p>
+      </div>
+    </section>
+
+    <section class="contact-section container">
+      <div class="contact-wrapper fade-in">
+        <div class="contact-info">
+          <h2 class="section-title">Contact Details</h2>
+          <div class="info-item">
+            <p>📍 <strong>ঠিকানা:</strong>আগারগাঁও, ঢাকা, বাংলাদেশ</p>
+          </div>
+          <div class="info-item">
+            <p>📞 <strong>ফোন:</strong> +৮৮০ ১৭৫৬ ৪৬৭৬৭০</p>
+          </div>
+          <div class="info-item">
+            <p>📧 <strong>ইমেইল:</strong> tanzim@furnituresource.com</p>
+          </div>
+
+          <div class="social-links" style="margin-top: 30px">
+            <h4 style="color: #facc15; margin-bottom: 10px">Follow Us</h4>
+            <p>Facebook | Instagram | LinkedIn</p>
+          </div>
+        </div>
+
+        <div class="contact-form-container">
+          <form class="contact-form">
+            <input type="text" placeholder="আপনার নাম" required />
+            <input type="email" placeholder="আপনার ইমেইল" required />
+            <input type="text" placeholder="বিষয়" required />
+            <textarea
+              rows="5"
+              placeholder="আপনার বার্তা লিখুন..."
+              required
+            ></textarea>
+            <button type="submit" class="cta-btn">বার্তা পাঠান</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section container fade-in">
+      <h2 class="section-title" style="text-align: center">Our Location</h2>
+      <div class="map-placeholder">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58430.22851259583!2d90.35246197931327!3d23.751352462319985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa569bc240027e1!2sDhaka!5e0!3m2!1sen!2sbd!4v1715600000000!5m2!1sen!2sbd"
+          width="100%"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Furniture Source. Developed for Tanzim Ahmed Utsho.</p>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById("modeToggle");
+      toggle.onclick = () => {
+        document.body.classList.toggle("light");
+        document.body.classList.toggle("dark");
+        toggle.innerText = document.body.classList.contains("light")
+          ? "☀️"
+          : "🌙";
+      };
+    </script>
+  </body>
+</html>

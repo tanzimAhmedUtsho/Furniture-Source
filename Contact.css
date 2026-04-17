@@ -1,0 +1,198 @@
+/* --- Global Reset (এটি না থাকলে হেডার ভেঙে যাবে) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+body.dark {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+body.light {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+/* --- Header & Container Styles (মেইন পেজের সাথে মিল রাখার জন্য) --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background: inherit;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  margin: 0 15px;
+  font-weight: 500;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #facc15;
+}
+
+#modeToggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* --- Contact Page Specific Styles --- */
+.contact-hero {
+  height: 40vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://images.unsplash.com/photo-1534536281715-e28d76689b4d")
+      center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Hero text always white */
+  text-align: center;
+}
+
+.contact-wrapper {
+  display: flex;
+  gap: 50px;
+  padding: 80px 0;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #facc15;
+}
+
+.info-item {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.contact-form-container {
+  flex: 1.5;
+  min-width: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(250, 204, 21, 0.3);
+}
+
+body.light .contact-form-container {
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: transparent;
+  color: inherit;
+  font-size: 1rem;
+}
+
+body.light .contact-form input,
+body.light .contact-form textarea {
+  border: 1px solid #cbd5e1;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #facc15;
+}
+
+/* Button Styling (আপনার কোডে এটি ছিল না) */
+.cta-btn {
+  padding: 12px;
+  background: #facc15;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #0f172a;
+  font-size: 1rem;
+}
+
+.cta-btn:hover {
+  background: #eab308;
+  transform: scale(1.02);
+}
+
+/* Map Section */
+.map-section {
+  padding-bottom: 80px;
+}
+
+.map-placeholder {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #020617;
+  color: white;
+}
+
+/* Mobile Friendly */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+  }
+  .contact-hero h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
