@@ -1,0 +1,225 @@
+/* --- Global Reset & Luxury Colors --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+:root {
+  --primary: #facc15; /* Furniture Source Signature Golden */
+  --bg-dark: #020617; /* Deep Midnight Blue */
+  --card-dark: rgba(30, 41, 59, 0.4);
+  --glass: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.08);
+  --text-primary: #f8fafc;
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+/* --- Premium Navigation --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(15px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #cbd5e1;
+  margin: 0 15px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+nav a:hover {
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
+}
+
+/* --- Cinematic Hero Section --- */
+.shop-hero {
+  height: 65vh;
+  background:
+    linear-gradient(rgba(2, 6, 23, 0.6), rgba(2, 6, 23, 0.8)),
+    url("https://images.unsplash.com/photo-1524758631624-e2822e304c36")
+      center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.shop-hero .overlay {
+  background: rgba(15, 23, 42, 0.7); /* Matching your previous luxury box */
+  padding: 60px;
+  border-radius: 40px;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.shop-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+  background: linear-gradient(to bottom, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- Luxury Filter Buttons --- */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 60px auto;
+  padding: 8px;
+  background: var(--glass);
+  width: fit-content;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+}
+
+.filter-btn {
+  padding: 10px 28px;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background: var(--primary); /* */
+  color: #020617;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(250, 204, 21, 0.2);
+}
+
+/* --- High-End Product Cards --- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  padding-bottom: 100px;
+}
+
+.product-card {
+  background: var(--card-dark);
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-15px);
+  border-color: rgba(250, 204, 21, 0.3);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+}
+
+.product-img {
+  height: 320px;
+  background: #1e293b;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.product-card:hover .product-img img {
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+/* Badge Style */
+.badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--primary);
+  color: #020617;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Info Section */
+.product-info {
+  padding: 30px;
+  text-align: center;
+}
+
+.product-info h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #f1f5f9;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 25px;
+}
+
+/* Designer Order Button */
+.add-to-cart {
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid rgba(250, 204, 21, 0.4);
+  color: var(--primary);
+  border-radius: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.add-to-cart:hover {
+  background: var(--primary);
+  color: #020617;
+  box-shadow: 0 15px 30px rgba(250, 204, 21, 0.2);
+}
+
+/* --- Animated Footer --- */
+footer {
+  padding: 60px;
+  background: #01040a;
+  border-top: 1px solid var(--border);
+  color: #64748b;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
