@@ -23,15 +23,19 @@
       }
       .modal-content {
         background-color: #1e293b;
-        margin: 15% auto;
+        margin-left: auto;
+        margin-right: 0;
         padding: 40px;
-        border: 1px solid #facc15;
-        width: 90%;
-        max-width: 400px;
-        border-radius: 20px;
+        border-left: 2px solid #facc15;
+        width: 100%;
+        max-width: 380px;
+        height: 100vh;
+        border-radius: 20px 0 0 20px;
         color: white;
         position: relative;
-        text-align: center;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
       }
       body.light .modal-content {
         background-color: #fff;
@@ -121,16 +125,23 @@
     <div id="checkoutModal" class="modal">
       <div class="modal-content">
         <span class="close-btn" id="closeModal">&times;</span>
-        <h2 style="color: #facc15; margin-bottom: 15px">
+        <h2 style="color: #facc15; margin-bottom: 15px; text-align: center">
           🛒 Your Shopping Cart
         </h2>
-        <p style="margin-bottom: 10px; font-size: 1.1rem">
+        <p style="margin-bottom: 10px; font-size: 1.1rem; text-align: center">
           Total Items:
           <span id="modalCartCount" style="font-weight: bold; color: #facc15"
             >0</span
           >
         </p>
-        <p style="margin-bottom: 25px; font-size: 1.2rem; font-weight: bold">
+        <p
+          style="
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+          "
+        >
           Total Price:
           <span id="modalTotalAmount" style="color: #facc15">$0</span>
         </p>
@@ -138,6 +149,7 @@
           id="cartItemsList"
           style="
             text-align: left;
+            flex-grow: 1;
             margin-bottom: 25px;
             max-height: 200px;
             overflow-y: auto;
@@ -192,47 +204,6 @@
       const buyButtons = document.querySelectorAll(".buy-btn");
       const cartItemsList = document.getElementById("cartItemsList");
 
-      // Notification Toast
-      const toast = document.createElement("div");
-      toast.style.cssText = `
-        position: fixed; top: 80px; right: 20px; 
-        background: #facc15; color: #020617; 
-        padding: 12px 20px; border-radius: 5px; 
-        font-weight: 600; display: none; z-index: 2000;
-      `;
-      document.body.appendChild(toast);
-
-      buyButtons.forEach((btn) => {
-        btn.onclick = () => {
-          const productInfo = btn.parentElement;
-          const productName = productInfo.querySelector("h3").innerText;
-          const productPrice = productInfo.querySelector("p").innerText;
-
-          cartItems.push({ name: productName, price: productPrice });
-          cartDisplay.innerText = cartItems.length;
-
-          // Button Animation
-          btn.innerText = "Added!";
-          btn.style.backgroundColor = "#22c55e";
-
-          // Toast Message
-          toast.innerText = `Added ${productName} to cart!`;
-          toast.style.display = "block";
-
-          setTimeout(() => {
-            btn.innerText = "Buy Now";
-            btn.style.backgroundColor = "";
-            toast.style.display = "none";
-          }, 2000);
-        };
-      });
-
-      // Modal Functionality
-      const modal = document.getElementById("checkoutModal");
-      const cartBtn = document.querySelector(".cart-status");
-      const closeModal = document.getElementById("closeModal");
-      const clearCartBtn = document.getElementById("clearCartBtn");
-
       const renderCart = () => {
         document.getElementById("modalCartCount").innerText = cartItems.length;
         cartDisplay.innerText = cartItems.length;
@@ -255,6 +226,51 @@
         document.getElementById("modalTotalAmount").innerText =
           `$${total.toLocaleString()}`;
       };
+
+      // Notification Toast
+      const toast = document.createElement("div");
+      toast.style.cssText = `
+        position: fixed; top: 80px; right: 20px; 
+        background: #facc15; color: #020617; 
+        padding: 12px 20px; border-radius: 5px; 
+        font-weight: 600; display: none; z-index: 2000;
+      `;
+      document.body.appendChild(toast);
+
+      buyButtons.forEach((btn) => {
+        btn.onclick = () => {
+          const productInfo = btn.parentElement;
+          const productName = productInfo.querySelector("h3").innerText;
+          const productPrice = productInfo.querySelector("p").innerText;
+
+          cartItems.push({ name: productName, price: productPrice });
+          cartDisplay.innerText = cartItems.length;
+
+          // Open side cart
+          renderCart();
+          modal.style.display = "block";
+
+          // Button Animation
+          btn.innerText = "Added!";
+          btn.style.backgroundColor = "#22c55e";
+
+          // Toast Message
+          toast.innerText = `Added ${productName} to cart!`;
+          toast.style.display = "block";
+
+          setTimeout(() => {
+            btn.innerText = "Buy Now";
+            btn.style.backgroundColor = "";
+            toast.style.display = "none";
+          }, 2000);
+        };
+      });
+
+      // Modal Functionality
+      const modal = document.getElementById("checkoutModal");
+      const cartBtn = document.querySelector(".cart-status");
+      const closeModal = document.getElementById("closeModal");
+      const clearCartBtn = document.getElementById("clearCartBtn");
 
       cartBtn.onclick = () => {
         renderCart();
