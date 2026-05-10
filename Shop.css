@@ -257,3 +257,50 @@ footer {
   font-size: 13px;
   letter-spacing: 1px;
 }
+
+/* ==========================================================================
+   8. CHECKOUT MODAL
+   ========================================================================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.modal-content {
+  background-color: #1e293b;
+  margin: 15% auto;
+  padding: 40px;
+  border: 1px solid var(--primary);
+  width: 90%;
+  max-width: 450px;
+  border-radius: 24px;
+  color: white;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+body.light .modal-content {
+  background-color: #fff;
+  color: #020617;
+}
+
+.close-btn {
+  position: absolute;
+  right: 25px;
+  top: 15px;
+  font-size: 32px;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: var(--primary);
+}

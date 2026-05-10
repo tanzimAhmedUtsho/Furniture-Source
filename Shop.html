@@ -198,6 +198,31 @@
       </div>
     </main>
 
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
+        <h2 style="color: var(--primary); margin-bottom: 20px">
+          🛒 আপনার কার্ট
+        </h2>
+        <p style="margin-bottom: 30px; font-size: 1.1rem">
+          মোট পণ্য:
+          <span
+            id="modalCartCount"
+            style="font-weight: 700; color: var(--primary)"
+            >0</span
+          >
+          টি
+        </p>
+        <button
+          class="add-to-cart"
+          style="width: 100%; background: var(--primary); color: #020617"
+        >
+          অর্ডার সম্পন্ন করুন
+        </button>
+      </div>
+    </div>
+
     <footer>
       <p>© 2026 Furniture Source. Developed for Tanzim Ahmed Utsho.</p>
     </footer>
@@ -273,6 +298,21 @@
           }, 2000);
         });
       });
+
+      // Modal Logic
+      const modal = document.getElementById("checkoutModal");
+      const cartBtn = document.querySelector(".cart-status");
+      const closeModal = document.getElementById("closeModal");
+
+      cartBtn.onclick = () => {
+        document.getElementById("modalCartCount").innerText = count;
+        modal.style.display = "block";
+      };
+
+      closeModal.onclick = () => (modal.style.display = "none");
+      window.onclick = (event) => {
+        if (event.target == modal) modal.style.display = "none";
+      };
     </script>
   </body>
 </html>
