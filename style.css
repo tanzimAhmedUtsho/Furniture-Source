@@ -295,6 +295,44 @@ footer {
   border-color: #facc15;
 }
 
+.newsletter-input-group {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.newsletter-input-group:focus-within {
+  border-color: #facc15;
+  box-shadow: 0 0 15px rgba(250, 204, 21, 0.1);
+}
+
+.newsletter-input-group input {
+  background: transparent;
+  border: none;
+  padding: 12px 15px;
+  color: white;
+  flex: 1;
+  outline: none;
+  font-size: 14px;
+}
+
+.newsletter-input-group button {
+  background: #facc15;
+  border: none;
+  padding: 0 20px;
+  color: #020617;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter-input-group button:hover {
+  background: #eab308;
+}
+
 .footer-section ul li {
   margin-bottom: 10px;
 }
@@ -320,6 +358,15 @@ body.light .social-links a {
   background: #fff;
   border-color: #e2e8f0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+body.light .newsletter-input-group {
+  background: #fff;
+  border-color: #e2e8f0;
+}
+
+body.light .newsletter-input-group input {
+  color: #020617;
 }
 
 body.light footer {
