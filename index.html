@@ -130,6 +130,18 @@
             >0</span
           >
         </p>
+        <div
+          id="cartItemsList"
+          style="
+            text-align: left;
+            margin-bottom: 25px;
+            max-height: 200px;
+            overflow-y: auto;
+            padding-right: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+          "
+        ></div>
         <button class="cta-btn" style="width: 100%">Proceed to Checkout</button>
       </div>
     </div>
@@ -152,9 +164,10 @@
       };
 
       // Simple Cart Functionality
-      let cartCount = 0;
+      let cartItems = [];
       const cartDisplay = document.getElementById("cartCount");
       const buyButtons = document.querySelectorAll(".buy-btn");
+      const cartItemsList = document.getElementById("cartItemsList");
 
       // Notification Toast
       const toast = document.createElement("div");
@@ -168,10 +181,12 @@
 
       buyButtons.forEach((btn) => {
         btn.onclick = () => {
-          cartCount++;
-          cartDisplay.innerText = cartCount;
+          const productInfo = btn.parentElement;
+          const productName = productInfo.querySelector("h3").innerText;
+          const productPrice = productInfo.querySelector("p").innerText;
 
-          const productName = btn.parentElement.querySelector("h3").innerText;
+          cartItems.push({ name: productName, price: productPrice });
+          cartDisplay.innerText = cartItems.length;
 
           // Button Animation
           btn.innerText = "Added!";
@@ -195,7 +210,20 @@
       const closeModal = document.getElementById("closeModal");
 
       cartBtn.onclick = () => {
-        document.getElementById("modalCartCount").innerText = cartCount;
+        document.getElementById("modalCartCount").innerText = cartItems.length;
+
+        cartItemsList.innerHTML =
+          cartItems.length === 0
+            ? '<p style="text-align: center; opacity: 0.6;">Your cart is empty</p>'
+            : "";
+        cartItems.forEach((item) => {
+          const div = document.createElement("div");
+          div.style.cssText =
+            "display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem;";
+          div.innerHTML = `<span>${item.name}</span> <span style="color: #facc15;">${item.price}</span>`;
+          cartItemsList.appendChild(div);
+        });
+
         modal.style.display = "block";
       };
 
