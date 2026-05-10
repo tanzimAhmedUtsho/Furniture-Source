@@ -19,6 +19,12 @@
         <a href="About.html">About</a>
         <a href="/Contact.html">Contact</a>
       </nav>
+      <div
+        class="cart-status"
+        style="color: #facc15; font-weight: bold; cursor: pointer"
+      >
+        🛒 <span id="cartCount">0</span>
+      </div>
       <button id="modeToggle" title="Toggle Light/Dark Mode">🌙</button>
     </header>
 
@@ -90,6 +96,44 @@
           toggle.innerText = "🌙";
         }
       };
+
+      // Simple Cart Functionality
+      let cartCount = 0;
+      const cartDisplay = document.getElementById("cartCount");
+      const buyButtons = document.querySelectorAll(".buy-btn");
+
+      // Notification Toast
+      const toast = document.createElement("div");
+      toast.style.cssText = `
+        position: fixed; top: 80px; right: 20px; 
+        background: #facc15; color: #020617; 
+        padding: 12px 20px; border-radius: 5px; 
+        font-weight: 600; display: none; z-index: 2000;
+      `;
+      document.body.appendChild(toast);
+
+      buyButtons.forEach((btn) => {
+        btn.onclick = () => {
+          cartCount++;
+          cartDisplay.innerText = cartCount;
+
+          const productName = btn.parentElement.querySelector("h3").innerText;
+
+          // Button Animation
+          btn.innerText = "Added!";
+          btn.style.backgroundColor = "#22c55e";
+
+          // Toast Message
+          toast.innerText = `Added ${productName} to cart!`;
+          toast.style.display = "block";
+
+          setTimeout(() => {
+            btn.innerText = "Buy Now";
+            btn.style.backgroundColor = "";
+            toast.style.display = "none";
+          }, 2000);
+        };
+      });
     </script>
   </body>
 </html>

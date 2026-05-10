@@ -19,6 +19,12 @@
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
+      <div
+        class="cart-status"
+        style="color: #facc15; font-weight: bold; cursor: pointer"
+      >
+        🛒 <span id="cartCount">0</span>
+      </div>
       <button id="modeToggle">🌙</button>
     </header>
 
@@ -222,6 +228,49 @@
             card.style.display =
               filter === "all" || category === filter ? "block" : "none";
           });
+        });
+      });
+
+      // Cart Logic and Notification
+      let count = 0;
+      const cartCountDisplay = document.getElementById("cartCount");
+      const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+      // Create Toast element
+      const toast = document.createElement("div");
+      toast.style.cssText = `
+        position: fixed; bottom: 20px; right: 20px; 
+        background: #facc15; color: #020617; 
+        padding: 15px 25px; border-radius: 8px; 
+        font-weight: bold; display: none; z-index: 2000;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      `;
+      document.body.appendChild(toast);
+
+      addToCartButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Increment count
+          count++;
+          cartCountDisplay.innerText = count;
+
+          // UI Feedback on button
+          const originalText = button.innerText;
+          button.innerText = "✓ যোগ হয়েছে";
+          button.style.background = "#22c55e";
+          button.style.color = "white";
+
+          // Show Toast
+          const productName =
+            button.parentElement.querySelector("h3").innerText;
+          toast.innerText = `${productName} কার্টে যোগ করা হয়েছে!`;
+          toast.style.display = "block";
+
+          setTimeout(() => {
+            button.innerText = originalText;
+            button.style.background = "";
+            button.style.color = "";
+            toast.style.display = "none";
+          }, 2000);
         });
       });
     </script>
