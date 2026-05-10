@@ -24,6 +24,11 @@ body.dark {
   color: var(--text-primary);
 }
 
+body.light {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
 /* ==========================================================================
    2. NAVIGATION (HEADER)
    ========================================================================== */
@@ -38,6 +43,11 @@ header {
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid var(--border);
+}
+
+body.light header {
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -57,6 +67,10 @@ nav a {
   letter-spacing: 0.5px;
   position: relative;
   display: inline-block;
+}
+
+body.light nav a {
+  color: #334155;
 }
 
 nav a:hover {
@@ -143,6 +157,10 @@ nav a:hover::after {
   cursor: pointer;
 }
 
+body.light .filter-btn {
+  color: #64748b;
+}
+
 .filter-btn.active {
   background: var(--primary);
   color: #020617;
@@ -166,6 +184,11 @@ nav a:hover::after {
   border: 1px solid var(--border);
   overflow: hidden;
   position: relative;
+}
+
+body.light .product-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 .product-card:hover {
@@ -222,6 +245,10 @@ nav a:hover::after {
   color: #f1f5f9;
 }
 
+body.light .product-info h3 {
+  color: #0f172a;
+}
+
 .price {
   display: flex;
   align-items: center;
@@ -234,6 +261,10 @@ nav a:hover::after {
   font-size: 24px;
   font-weight: 700;
   color: var(--primary);
+}
+
+body.light .current-price {
+  color: #b45309;
 }
 
 .old-price {
@@ -342,6 +373,11 @@ body.light .modal-content {
   cursor: pointer;
   backdrop-filter: blur(8px);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body.light #modeToggle {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 #modeToggle:hover {

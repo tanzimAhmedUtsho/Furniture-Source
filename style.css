@@ -35,6 +35,11 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+body.light header {
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .logo {
   font-size: 24px;
   font-weight: bold;
@@ -85,6 +90,11 @@ nav a:hover::after {
   cursor: pointer;
   backdrop-filter: blur(8px);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body.light #modeToggle {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 #modeToggle:hover {
@@ -216,6 +226,10 @@ body.light .card {
   color: #facc15;
   margin: 10px 0;
   font-weight: bold;
+}
+
+body.light .card p {
+  color: #b45309; /* লাইট মোডে কন্ট্রাস্টের জন্য কিছুটা ডার্ক গোল্ডেন */
 }
 
 /* Animations */
