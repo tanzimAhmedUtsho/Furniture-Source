@@ -225,12 +225,34 @@
             padding-top: 15px;
           "
         ></div>
-        <button
-          class="add-to-cart"
-          style="width: 100%; background: var(--primary); color: #020617"
-        >
-          অর্ডার সম্পন্ন করুন
-        </button>
+        <div style="display: flex; gap: 10px; align-items: stretch">
+          <button
+            id="clearCartBtn"
+            style="
+              flex: 1;
+              padding: 12px;
+              background: #ef4444;
+              color: white;
+              border: none;
+              border-radius: 14px;
+              cursor: pointer;
+              font-weight: 600;
+            "
+          >
+            মুছে ফেলুন
+          </button>
+          <button
+            class="add-to-cart"
+            style="
+              flex: 2;
+              margin-top: 0;
+              background: var(--primary);
+              color: #020617;
+            "
+          >
+            অর্ডার সম্পন্ন করুন
+          </button>
+        </div>
       </div>
     </div>
 
@@ -318,9 +340,11 @@
       const modal = document.getElementById("checkoutModal");
       const cartBtn = document.querySelector(".cart-status");
       const closeModal = document.getElementById("closeModal");
+      const clearCartBtn = document.getElementById("clearCartBtn");
 
-      cartBtn.onclick = () => {
+      const renderCart = () => {
         document.getElementById("modalCartCount").innerText = cartItems.length;
+        cartCountDisplay.innerText = cartItems.length;
 
         cartItemsList.innerHTML =
           cartItems.length === 0
@@ -333,8 +357,16 @@
           div.innerHTML = `<span>${item.name}</span> <span style="color: var(--primary); font-weight: bold;">${item.price}</span>`;
           cartItemsList.appendChild(div);
         });
+      };
 
+      cartBtn.onclick = () => {
+        renderCart();
         modal.style.display = "block";
+      };
+
+      clearCartBtn.onclick = () => {
+        cartItems = [];
+        renderCart();
       };
 
       closeModal.onclick = () => (modal.style.display = "none");

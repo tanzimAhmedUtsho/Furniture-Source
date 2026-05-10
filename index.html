@@ -142,7 +142,26 @@
             padding-top: 15px;
           "
         ></div>
-        <button class="cta-btn" style="width: 100%">Proceed to Checkout</button>
+        <div style="display: flex; gap: 10px; align-items: stretch">
+          <button
+            id="clearCartBtn"
+            style="
+              flex: 1;
+              padding: 12px;
+              background: #ef4444;
+              color: white;
+              border: none;
+              border-radius: 8px;
+              cursor: pointer;
+              font-weight: 600;
+            "
+          >
+            Clear All
+          </button>
+          <button class="cta-btn" style="flex: 2; margin-top: 0">
+            Proceed to Checkout
+          </button>
+        </div>
       </div>
     </div>
 
@@ -208,9 +227,11 @@
       const modal = document.getElementById("checkoutModal");
       const cartBtn = document.querySelector(".cart-status");
       const closeModal = document.getElementById("closeModal");
+      const clearCartBtn = document.getElementById("clearCartBtn");
 
-      cartBtn.onclick = () => {
+      const renderCart = () => {
         document.getElementById("modalCartCount").innerText = cartItems.length;
+        cartDisplay.innerText = cartItems.length;
 
         cartItemsList.innerHTML =
           cartItems.length === 0
@@ -223,8 +244,16 @@
           div.innerHTML = `<span>${item.name}</span> <span style="color: #facc15;">${item.price}</span>`;
           cartItemsList.appendChild(div);
         });
+      };
 
+      cartBtn.onclick = () => {
+        renderCart();
         modal.style.display = "block";
+      };
+
+      clearCartBtn.onclick = () => {
+        cartItems = [];
+        renderCart();
       };
 
       closeModal.onclick = () => (modal.style.display = "none");
